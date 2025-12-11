@@ -1,0 +1,264 @@
+.recipe-detail-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.recipe-detail-container {
+  background: white;
+  border-radius: 16px;
+  max-width: 900px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.close-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: white;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.close-button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.close-button svg {
+  stroke-width: 2.5;
+}
+
+.recipe-detail-header {
+  position: relative;
+  height: 350px;
+  overflow: hidden;
+  border-radius: 16px 16px 0 0;
+}
+
+.recipe-detail-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.recipe-detail-overlay-gradient {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 30px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.recipe-detail-category {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #ff6b6b;
+  width: fit-content;
+}
+
+.recipe-detail-title {
+  margin: 0;
+  color: white;
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.recipe-detail-content {
+  padding: 30px;
+}
+
+.recipe-detail-meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 16px;
+  margin-bottom: 30px;
+}
+
+.meta-card {
+  background: #f8f9fa;
+  padding: 16px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.meta-card svg {
+  color: #ff6b6b;
+  stroke-width: 2;
+  flex-shrink: 0;
+}
+
+.meta-label {
+  font-size: 0.8rem;
+  color: #636e72;
+  margin-bottom: 4px;
+}
+
+.meta-value {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #2d3436;
+}
+
+.recipe-detail-description {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #636e72;
+  margin: 0 0 30px 0;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 12px;
+  border-left: 4px solid #ff6b6b;
+}
+
+.recipe-sections {
+  display: grid;
+  gap: 30px;
+}
+
+.recipe-section {
+  background: white;
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.5rem;
+  color: #2d3436;
+  margin: 0 0 20px 0;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #e9ecef;
+}
+
+.section-title svg {
+  color: #ff6b6b;
+  stroke-width: 2;
+}
+
+.ingredients-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 12px;
+}
+
+.ingredients-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 1rem;
+  color: #2d3436;
+  padding: 12px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+
+.ingredients-list li:hover {
+  background: #e9ecef;
+}
+
+.ingredient-bullet {
+  color: #ff6b6b;
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.instructions-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  counter-reset: instruction-counter;
+}
+
+.instructions-list li {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 20px;
+  counter-increment: instruction-counter;
+}
+
+.instruction-number {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  background: #ff6b6b;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.instruction-text {
+  flex: 1;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #2d3436;
+  padding-top: 4px;
+}
+
+@media (max-width: 768px) {
+  .recipe-detail-title {
+    font-size: 1.8rem;
+  }
+
+  .recipe-detail-header {
+    height: 250px;
+  }
+
+  .recipe-detail-content {
+    padding: 20px;
+  }
+
+  .recipe-detail-meta {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
